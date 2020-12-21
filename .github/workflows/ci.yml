@@ -8,14 +8,15 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-20.04, windows-2019]
-        ruby: [2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, head, jruby-9.1, jruby-9.2, jruby-head, truffleruby-20]
+        ruby: [2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, jruby-9.1, jruby-9.2, truffleruby-20]
         experimental: [false]
         exclude:
           # truffleruby isn't available on windows
           - os: windows-2019
             ruby: truffleruby-20
         include:
-          - ruby: [head, jruby-head]
+          - os: [ubuntu-20.04, windows-2019]
+            ruby: [head, jruby-head]
             experimental: true
     runs-on: ${{ matrix.os }}
     continue-on-error: ${{ matrix.experimental }}
