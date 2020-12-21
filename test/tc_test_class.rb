@@ -8,4 +8,8 @@ class TcTestClass < Minitest::Test
       assert_equal(expected, result)
     end
   end
+
+  def test_simulate_failure
+    refute_equal('true', ENV['SIMULATE_FAILURE'], 'Simulated failure')
+  end
 end
