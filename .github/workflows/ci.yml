@@ -15,8 +15,17 @@ jobs:
           - os: windows-2019
             ruby: truffleruby-20
         include:
-          - os: [ubuntu-20.04, windows-2019]
-            ruby: [head, jruby-head]
+          - os: ubuntu-20.04
+            ruby: head
+            experimental: true
+          - os: windows-2019
+            ruby: head
+            experimental: true
+          - os: ubuntu-20.04
+            ruby: jruby-head
+            experimental: true
+          - os: windows-2019
+            ruby: jruby-head
             experimental: true
     runs-on: ${{ matrix.os }}
     continue-on-error: ${{ matrix.experimental }}
