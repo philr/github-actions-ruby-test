@@ -9,6 +9,10 @@ jobs:
       matrix:
         os: [ubuntu-20.04, windows-2019]
         ruby: [2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, head, jruby-9.1, jruby-9.2, jruby-head, truffleruby-20]
+        exclude:
+          # truffleruby isn't available on windows
+          - os: windows-2019
+            ruby: truffleruby-20
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
