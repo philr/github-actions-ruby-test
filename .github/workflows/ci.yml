@@ -74,6 +74,8 @@ jobs:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
       - run: ruby --version
+      - run: gem --version
+      - run: bundle --version
       - run: bundle exec rake test
         env:
           SIMULATE_FAILURE: ${{ matrix.experimental }}
